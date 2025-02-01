@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
 import CardHome from "../componentes/CardHome";
+import Header from "../componentes/Header";
 
 
 export default function Home(){
@@ -24,13 +25,35 @@ export default function Home(){
             }
             consultarapi();
           },[])
-          return (
+
+
+        function eventobuscarpelicula(peliculabuscada){
+          const array=[]
+
+          peliculas.filter((pelicula) => {
+            if (peliculabuscada === pelicula.title) { // Usa '===' para comparar
+                array.push({
+                    title: pelicula.title,
+                    summary: pelicula.overview
+                
+                })}})
+          //
+          // let pelifiltrada=peliculas.filter((pelicula,indice)=>peliculabuscada=pelicula.title)
+          console.log(array)
+
+          
+        }
+          
+        
+        
+        return (
             <>
             <h1>peliculas</h1>
+            <Header eventobuscarpelicula={eventobuscarpelicula}></Header>
           
             
             {peliculas.map((pelicula,index)=>{
-            return <CardHome key={index} titulo={pelicula.title} posterPath={pelicula.poster_path} ></CardHome>
+            return <CardHome key={index} titulo={pelicula.title} posterPath={pelicula.poster_path} id={pelicula.id} ></CardHome>
         
             })}
             

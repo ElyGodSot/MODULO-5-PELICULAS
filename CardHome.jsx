@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 
-export default function CardHome({titulo, posterPath}){
+export default function CardHome({titulo, posterPath, id}){
 
     const [posterPathImageUrl, setPosterPathImageUrl] = useState(`https://image.tmdb.org/t/p/w500/${posterPath}`);
 
@@ -13,7 +13,7 @@ export default function CardHome({titulo, posterPath}){
         <Card style={{ width: '18rem' }}>
       <Card.Img variant="top"  src={posterPathImageUrl} />
       <Card.Body>
-        <Card.Title><NavLink to={`/VerPelicula/${titulo}`}>{titulo}</NavLink></Card.Title>
+        <Card.Title><NavLink to={`/VerPelicula/${titulo}/${id}`}>{titulo}</NavLink></Card.Title>
       
       </Card.Body>
     </Card>
