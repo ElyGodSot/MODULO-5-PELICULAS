@@ -7,7 +7,7 @@ export default function RoutesIndex(){
     return(
         <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/Verpelicula/:seleccion' element={<Verpelicula />}/>
+            <Route path='/Verpelicula/:seleccion/:id' element={<Verpelicula />}/>
 
         </Routes>
     )
